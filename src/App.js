@@ -31,7 +31,7 @@ function setBestScore(){
   
 let rolllogic = rollArr < bestScore.bestRollA
 let scorelogic = localstorgeCounte < bestScore.bestScoreA
-let chekBothLogic = scorelogic && scorelogic
+let chekBothLogic = scorelogic && rolllogic
 
 
   // localStorage.setItem("bestScore", JSON.stringify(localstorgeCounte))
