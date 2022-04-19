@@ -4,7 +4,7 @@ import dieDatabasee from "./compo/dieData"
 import {nanoid} from "nanoid"
 // import { faLeaf } from "@fortawesome/free-solid-svg-icons"
 import Confetti from "react-confetti"
-import { Preview } from "react-mde"
+// import { Preview } from "react-mde"
 
 export default function App(){
 
@@ -20,7 +20,7 @@ function setBestScore(){
   
   // localStorage.setItem("bestScore", JSON.stringify(localstorgeCounte))
   // localStorage.setItem("bestRoll", JSON.stringify(rollArr))
-  cngBestScore(oldVal=> ( localstorgeCounte < oldVal.bestScoreA || localstorgeCounte > 0) && ( rollArr < oldVal.bestRollA || rollArr > 0) ? ({...oldVal, bestScoreA:localstorgeCounte, bestRollA:rollArr}):oldVal)
+  cngBestScore(oldVal=> ( localstorgeCounte < oldVal.bestScoreA ) && ( rollArr < oldVal.bestRollA ) ? ({...oldVal, bestScoreA:localstorgeCounte, bestRollA:rollArr}):oldVal)
   console.log(bestScore)
 }
 
@@ -34,7 +34,7 @@ const [counter, setCounter] = React.useState(0)
     if(!wonArr) { const timer = setInterval(() => setCounter(counter + 1), 1000);
     localStorage.setItem("counterVal", JSON.stringify(counter))
     return () => clearInterval(timer);}
-    
+    // eslint-disable-next-line
   }, [counter]);
 
 //End Countdown timer
@@ -42,7 +42,7 @@ const [counter, setCounter] = React.useState(0)
 
   
 
-  const [diceArr, cngDice] = React.useState(randomNumberGen())
+  const [diceArr] = React.useState(randomNumberGen())
   const [dicDb, cngDiceDb] = React.useState(diceArr)
 
 
