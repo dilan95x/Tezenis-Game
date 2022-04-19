@@ -2,7 +2,7 @@ import React from "react"
 import Diecomp from "./compo/die"
 import dieDatabasee from "./compo/dieData"
 import {nanoid} from "nanoid"
-import { faLeaf } from "@fortawesome/free-solid-svg-icons"
+// import { faLeaf } from "@fortawesome/free-solid-svg-icons"
 import Confetti from "react-confetti"
 import { Preview } from "react-mde"
 
