@@ -9,23 +9,34 @@ import Confetti from "react-confetti"
 export default function App(){
 
 
+  //rounds counter 
+  
+  //STATE ROUND COUNTER
+  const [roundArr, cnground]= React.useState(0)
+
+  function roundsCount(){
+    cnground(oldVal=>oldVal+1)
+  }
+
   //get localstorge Counter value
  const localstorgeCounte = JSON.parse(localStorage.getItem("counterVal"))
 
  //Save highscore to State
- const [bestScore, cngBestScore]= React.useState({bestScoreA:0, bestRollA:0})
+ const [bestScore, cngBestScore]= React.useState({bestScoreA:100, bestRollA:100})
 
 
 
  //Save highscore to localstoege
 function setBestScore(){
   
-const bestRollLogic = rollArr < oldVal.bestRollA
-const bestScoreLogic = localstorgeCounte < bestScore.bestScoreA
+let rolllogic = rollArr < bestScore.bestRollA
+let scorelogic = localstorgeCounte < bestScore.bestScoreA
+let chekBothLogic = scorelogic && scorelogic
+
 
   // localStorage.setItem("bestScore", JSON.stringify(localstorgeCounte))
   // localStorage.setItem("bestRoll", JSON.stringify(rollArr))
-  cngBestScore(oldVal=> ( bestScoreLogic && 0 < bestScoreLogic) && ( bestRollLogic  && 0 < bestRollLogic) ? ({...oldVal, bestScoreA:localstorgeCounte, bestRollA:rollArr}):oldVal)
+  cngBestScore(oldVal=> chekBothLogic ? ({...oldVal, bestScoreA:localstorgeCounte, bestRollA:rollArr}) : oldVal)
   console.log(bestScore)
 }
 
@@ -103,7 +114,7 @@ function genarateRandomDie(){
       CngRollcount(1)
       setCounter(0)
       setBestScore()
-     
+      roundsCount()
     }else{
       
       CngRollcount(oldVal=>oldVal+1)
@@ -133,7 +144,7 @@ function holdNum(id){
     <main>
       {wonArr && <Confetti/>}
         <h3>Tenzies</h3><br></br>
-        <h4>Best Score is {bestScore.bestScoreA} Rolls in {bestScore.bestRollA} Seconds</h4><br></br>
+        {roundArr > 0 ? <h4>Best Score is {bestScore.bestRollA} Rolls in {bestScore.bestScoreA} Seconds</h4> :<h4>Get highscore</h4>}<br></br>
         
         <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
 
