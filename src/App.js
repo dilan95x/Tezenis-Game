@@ -15,12 +15,17 @@ export default function App(){
  //Save highscore to State
  const [bestScore, cngBestScore]= React.useState({bestScoreA:0, bestRollA:0})
 
+
+
  //Save highscore to localstoege
 function setBestScore(){
   
+const bestRollLogic = rollArr < oldVal.bestRollA
+const bestScoreLogic = localstorgeCounte < bestScore.bestScoreA
+
   // localStorage.setItem("bestScore", JSON.stringify(localstorgeCounte))
   // localStorage.setItem("bestRoll", JSON.stringify(rollArr))
-  cngBestScore(oldVal=> ( localstorgeCounte < oldVal.bestScoreA ) && ( rollArr < oldVal.bestRollA ) ? ({...oldVal, bestScoreA:localstorgeCounte, bestRollA:rollArr}):oldVal)
+  cngBestScore(oldVal=> ( bestScoreLogic && 0 < bestScoreLogic) && ( bestRollLogic  && 0 < bestRollLogic) ? ({...oldVal, bestScoreA:localstorgeCounte, bestRollA:rollArr}):oldVal)
   console.log(bestScore)
 }
 
