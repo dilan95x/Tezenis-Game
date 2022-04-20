@@ -143,10 +143,10 @@ function holdNum(id){
     
     <main>
       {wonArr && <Confetti/>}
-        <h3>Tenzies</h3><br></br>
+        <h3 className="game-titile" >Tenzies</h3><br></br>
         {roundArr > 0 ? <h4>Best Score is {bestScore.bestRollA} Rolls in {bestScore.bestScoreA} Seconds</h4> :<h4>Get highscore</h4>}<br></br>
         
-        <p>Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+        <p className="game-discription" >Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p><br></br>
 
         {rollArr>0 &&<h1>Roll Count : {rollArr}</h1>}
         {rollArr>0 && !wonArr ? <h3>CountDown : {counter} Seconds</h3> : <h3>CountDown : {localstorgeCounte} Seconds</h3>}
